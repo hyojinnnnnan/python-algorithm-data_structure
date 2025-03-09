@@ -53,10 +53,11 @@ def binggo_check_cnt(binggo_check):
         # 3) 대각선 빙고
         sum_diagonal1 += binggo_check[i][4-i]  # 우상향 대각선 해당 요소값
         sum_diagonal2 += binggo_check[i][i]  # 우하양 대각선 해당 요소값
-        if sum_diagonal1 == 5:
-            count += 1
-        if sum_diagonal2 == 5:
-            count += 1
+        if i == 4:
+            if sum_diagonal1 == 5:
+                count += 1
+            if sum_diagonal2 == 5:
+                count += 1
 
     return count
             
@@ -67,7 +68,6 @@ for c in range(len(check)):
             if check[c] == binggo[i][j]:
                 binggo_check[i][j] = 1
                 break 
-
         else:  # 루프가 break를 만나지 않고 "정상적으로 끝났을 때"만 else가 실행
             continue  
         break  # 숫자를 찾으면 i 루프도 멈추기 위해 break를 실행
